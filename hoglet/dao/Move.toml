@@ -1,0 +1,37 @@
+[package]
+name = "hoglet_dao"
+version = "1.0.0"
+authors = []
+
+[addresses]
+HOGL = "0x2ff2ca7683cde2e2d4acb53c3e1c52114b4f8a80a86bac2a065a6d487436ac1d"
+dao_factory = "0xe7ebc7fa1e5d6ce8a102780dd22577a5f8bc9cdb9de7c9fb250176b017f25fcd"
+dao_genesis = "0x7ea1513782150d8c19896dd9da91215d7b81d10ad4c0ae1467167b6c8834d037"
+dao_router = "0x81d6612bb40d99e79fa99114a82953a3a19971b37b147ea269ce4a535288fbb8"
+dao_views = "0xf3f3650ace9d98102b7023c61c1f6c5a698008ded9662585faf069c4810cb24e"
+dao_tax_router = "0x74329c1fd2d57b2a902f737b5ad71b4610214635de74b8dbeb82be9b1a985493"
+dao_tokens = "0x195047fcb6bb4c2918ab5c61e08a777a575bc2f32116bfc40bbed49c04a13bf8"
+dao_boost = "0x0893f46752ea8ee1416cf061c2f0ffd4ff538020630731c4e96074f3d64e0107"
+dao_scripts = "0xca62ee560f7da201ee0399ba420ff448651c6e115049cf1a7a01d6706e2cf6fb"
+dao_libs = "0xbb7e8f52fe638a1f81cfbc25ec224f6e52003ea13dd111a84f331f0cf851613f"
+spike_amm = "0x3045d27b5fada1e30897a741fb184e48ef0bff3717aea23918ebc1e5c7153083"
+hoglet_core = "0xd6a0e979c0a05fadc1e545e0a445beb4de2dd33405f985948e0ea4a2abd89885"
+
+[dev-addresses]
+
+[dependencies.SupraFramework]
+git = "https://github.com/Entropy-Foundation/aptos-core.git"
+rev = "dev"
+subdir = "aptos-move/framework/supra-framework"
+
+[dependencies.AptosTokenObjects]
+git = "https://github.com/Entropy-Foundation/aptos-core.git"
+rev = "dev"
+subdir = "aptos-move/framework/aptos-token-objects"
+
+[dependencies.AptosToken]
+git = "https://github.com/Entropy-Foundation/aptos-core.git"
+rev = "dev"
+subdir = "aptos-move/framework/aptos-token"
+
+[dev-dependencies]

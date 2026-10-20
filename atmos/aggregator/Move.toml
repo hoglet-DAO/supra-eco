@@ -1,0 +1,12 @@
+[package]
+name = "AtmosAggregator"
+version = "1.0.0"
+authors = ["atmosprotocol"]
+
+[addresses]
+atmos_aggregator = "0x35be72e2c5b6b2bb8661127fb5bb242d65f3dc83f2c750adb750fd8cb6dfd4a8"
+
+[dependencies.SupraFramework]
+git = 'https://github.com/Entropy-Foundation/aptos-core.git'
+subdir = 'aptos-move/framework/supra-framework'
+rev = 'dev'

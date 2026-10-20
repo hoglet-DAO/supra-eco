@@ -1,0 +1,18 @@
+[package]
+name = "amm"
+version = "1.0.0"
+authors = []
+
+[addresses]
+
+spike_amm = "0x3045d27b5fada1e30897a741fb184e48ef0bff3717aea23918ebc1e5c7153083"
+spike_staking = "0x3045d27b5fada1e30897a741fb184e48ef0bff3717aea23918ebc1e5c7153083"
+
+[dev-addresses]
+
+[dependencies.SupraFramework]
+git = "https://github.com/Entropy-Foundation/aptos-core.git"
+rev = "dev"
+subdir = "aptos-move/framework/supra-framework"
+
+[dev-dependencies]

@@ -1,0 +1,18 @@
+[package]
+name = "governance_vault"
+version = "1.0.0"
+authors = []
+
+[addresses]
+RENOUNCE = "0xe799069a01bcb4e79a714d685a0fa850e644d9b0d973844ad37dd46b543570c9"
+dao_contracts_vault = "0xcaf5cab2ae67ba5e86aba32506282a2adf3cddcc452b15797382b1b52f37fcb3"
+admin = "0xe799069a01bcb4e79a714d685a0fa850e644d9b0d973844ad37dd46b543570c9"
+
+[dev-addresses]
+
+[dependencies.SupraFramework]
+git = "https://github.com/Entropy-Foundation/aptos-core.git"
+rev = "dev"
+subdir = "aptos-move/framework/supra-framework"
+
+[dev-dependencies]
