@@ -21,7 +21,6 @@ module dao_router::dao_wrapper {
     }
 
     public fun flash_loan_fa(
-        _borrower: &signer,
         _native_metadata: Object<Metadata>,
         _amount: u64
     ): (FungibleAsset, FlashLoanReceiptFA) {
