@@ -1,0 +1,13 @@
+[package]
+name = "dao_views"
+version = "1.0.0"
+authors = []
+
+[addresses]
+HOGL = "0x2ff2ca7683cde2e2d4acb53c3e1c52114b4f8a80a86bac2a065a6d487436ac1d"
+dao_views = "0xf3f3650ace9d98102b7023c61c1f6c5a698008ded9662585faf069c4810cb24e"
+
+[dependencies.SupraFramework]
+git = "https://github.com/Entropy-Foundation/aptos-core.git"
+rev = "dev"
+subdir = "aptos-move/framework/supra-framework"

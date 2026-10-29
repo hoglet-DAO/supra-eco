@@ -1,0 +1,59 @@
+module dao_genesis::hoglet_genesis {
+    use std::signer;
+    use std::string;
+    use std::option;
+    use supra_framework::object::{Self};
+    use supra_framework::fungible_asset::{Self, Metadata};
+    use supra_framework::primary_fungible_store;
+    use supra_framework::dispatchable_fungible_asset;
+    use dao_factory::petra;
+
+    // Constants for Hoglet Token
+    const TOKEN_NAME: vector<u8> = b"Hoglet DAOs"; 
+    const TOKEN_SYMBOL: vector<u8> = b"HOG";
+    const TOKEN_DECIMALS: u8 = 3;
+    const INITIAL_SUPPLY: u64 = 13_700_000_000_000_000; 
+    const TOKEN_URI: vector<u8> = b"ipfs://bafkreig3pnks7kgrk4b4p5kmifajh74hd6ne7wopsd65hk4osxgz2ovj2i";
+    const PROJECT_URI: vector<u8> = b"https://www.hoglet.xyz";
+
+    // This runs automatically when the dao_factory package is deployed.
+    // It creates the Hoglet token, creates the DAO, and transfers admin rights.
+    fun init_module(admin: &signer) {
+        // 1. Create Hoglet Token (Fungible Asset)
+        let constructor_ref = object::create_named_object(admin, b"HOGLET_TOKEN_SEED");
+        primary_fungible_store::create_primary_store_enabled_fungible_asset(
+            &constructor_ref,
+            option::none(),
+            string::utf8(TOKEN_NAME),
+            string::utf8(TOKEN_SYMBOL),
+            TOKEN_DECIMALS,
+            string::utf8(TOKEN_URI),
+            string::utf8(PROJECT_URI)
+        );
+        let mint_ref = fungible_asset::generate_mint_ref(&constructor_ref);
+        let metadata_object = object::object_from_constructor_ref<Metadata>(&constructor_ref);
+
+        // 2. Mint initial supply directly to the recipient wallet
+        let coins = fungible_asset::mint(&mint_ref, INITIAL_SUPPLY);
+        let genesis_dest = primary_fungible_store::ensure_primary_store_exists(@recipient, fungible_asset::asset_metadata(&coins));
+        dispatchable_fungible_asset::deposit(genesis_dest, coins);
+
+        // 3. Temporarily inject Formula 137 into the Factory config
+        petra::set_default_config(admin, 12, 2734); // 2734 PPM = 0.2734% = 37.45 Trillions
+        petra::set_default_config(admin, 9, 100); // 1% weekly decay
+        petra::set_default_config(admin, 10, 10); // 10 PPM = 0.001% = 137 Billions perpetual
+
+        // 4. Temporarily exempt creation fee for this account and create the Inflationary DAO via Factory
+        petra::set_creation_fee(admin, 0);
+        let _dao_address = petra::create_dao_inflationary(admin, metadata_object, mint_ref);
+        petra::set_creation_fee(admin, 1_370_000_000); // Restore 13.7 SUPRA fee
+
+        // 5. Revert the Factory to the 137-themed defaults for everyone else
+        petra::set_default_config(admin, 12, 13700); // 1.37%
+        petra::set_default_config(admin, 9, 137); // 1.37% decay
+        petra::set_default_config(admin, 10, 137); // 0.0137%
+
+        // 6. Transfer Factory admin rights to the recipient wallet
+        petra::transfer_admin(admin, @recipient);
+    }
+}

@@ -1,0 +1,18 @@
+[package]
+name = "dao_boost"
+version = "1.0.0"
+authors = []
+
+[addresses]
+HOGL = "0x2ff2ca7683cde2e2d4acb53c3e1c52114b4f8a80a86bac2a065a6d487436ac1d"
+dao_boost = "0x0893f46752ea8ee1416cf061c2f0ffd4ff538020630731c4e96074f3d64e0107"
+
+[dependencies.SupraFramework]
+git = "https://github.com/Entropy-Foundation/aptos-core.git"
+rev = "dev"
+subdir = "aptos-move/framework/supra-framework"
+
+[dependencies.AptosTokenObjects]
+git = "https://github.com/Entropy-Foundation/aptos-core.git"
+rev = "dev"
+subdir = "aptos-move/framework/aptos-token-objects"

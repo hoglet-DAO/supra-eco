@@ -1,0 +1,19 @@
+[package]
+name = "hoglet_dao"
+version = "1.0.0"
+authors = []
+
+[addresses]
+dao_tokens = "0x195047fcb6bb4c2918ab5c61e08a777a575bc2f32116bfc40bbed49c04a13bf8"
+HOGL = "0x2ff2ca7683cde2e2d4acb53c3e1c52114b4f8a80a86bac2a065a6d487436ac1d"
+dao_factory = "0xe7ebc7fa1e5d6ce8a102780dd22577a5f8bc9cdb9de7c9fb250176b017f25fcd"
+
+[dependencies.SupraFramework]
+git = "https://github.com/Entropy-Foundation/aptos-core.git"
+rev = "dev"
+subdir = "aptos-move/framework/supra-framework"
+
+[dependencies.AptosTokenObjects]
+git = "https://github.com/Entropy-Foundation/aptos-core.git"
+rev = "dev"
+subdir = "aptos-move/framework/aptos-token-objects"

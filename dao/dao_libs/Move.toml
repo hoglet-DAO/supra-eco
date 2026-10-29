@@ -1,0 +1,13 @@
+[package]
+name = "dao_libs"
+version = "1.0.0"
+
+[addresses]
+
+HOGL = "0x2ff2ca7683cde2e2d4acb53c3e1c52114b4f8a80a86bac2a065a6d487436ac1d"
+dao_libs = "0xc91177c0c283292d8de2a1be69926d904d055bc8ae758a2a2958e7508121a30e"
+
+[dependencies.SupraFramework]
+git = "https://github.com/Entropy-Foundation/aptos-core.git"
+rev = "dev"
+subdir = "aptos-move/framework/supra-framework"
