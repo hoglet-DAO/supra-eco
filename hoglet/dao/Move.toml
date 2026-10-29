@@ -1,5 +1,5 @@
 [package]
-name = "hoglet_dao"
+name = "dao_router"
 version = "1.0.0"
 authors = []
 
