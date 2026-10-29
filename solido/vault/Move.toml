@@ -1,0 +1,21 @@
+[package]
+name = "solido_vault"
+version = "1.0.0"
+authors = []
+
+[addresses]
+vault = "0x81846514536430ea934c7270f86cf5b067e2a2faef0e91379b4f284e91c7f53c"
+
+[dev-addresses]
+
+[dependencies.SupraFramework]
+git = "https://github.com/Entropy-Foundation/aptos-core.git"
+rev = "dev"
+subdir = "aptos-move/framework/supra-framework"
+
+[dependencies.AptosToken]
+git = "https://github.com/Entropy-Foundation/aptos-core.git"
+rev = "dev"
+subdir = "aptos-move/framework/aptos-token"
+
+[dev-dependencies]
